@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUser } = useContext(AuthContext);
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -15,9 +16,27 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         console.log("Register Success");
+        updateUser(name, photo)
+        .then(() => {
+            Swal.fire({
+                icon: "success",
+                title: "User Register Success",
+                text: "Welcome to MEALMINGLE",
+                footer: '<a href="#">You can take and Share Your food now with others</a>'
+              });
+              form.reset()
+        })
+        .catch(error => {
+            console.error(error);
+            
+        })
       })
       .catch((err) => {
         console.error(err);
+        Swal.fire({
+            icon: "error",
+            title: "Registration Failed"
+          });
       });
   };
   return (
@@ -35,7 +54,7 @@ const Register = () => {
               <input
                 name="name"
                 type="text"
-                placeholder="email"
+                placeholder="Name"
                 className="input input-bordered"
                 required
               />
@@ -48,7 +67,7 @@ const Register = () => {
               <input
                 name="photo"
                 type="text"
-                placeholder="email"
+                placeholder="Photo URL"
                 className="input input-bordered"
                 required
               />
