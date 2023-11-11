@@ -82,25 +82,10 @@ const Navbar = () => {
       <div className="navbar-end">
 
           {
-              user ? ( <Link to='/login'>
-              <button className='btn'>
-              Login
-              </button>
-          </Link>) : (
-               <button onClick={handleLogout}>
-               Logout
-           </button>
-          )
+              user ? (<button className='btn' onClick={handleLogout}> Logout </button>  ) 
+              :
+                    (  <Link to='/login'><button className='btn'> Login</button> </Link>)
           }
-          {/* <Link to='/login'>
-              <button className='btn'>
-              Login
-              </button>
-          </Link>
-
-          <button onClick={handleLogout}>
-              Logout
-          </button> */}
       </div>
       </div>
     </div>
