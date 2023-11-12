@@ -29,12 +29,7 @@ const AddFood = () => {
             DonatorEmail: email
         }
         console.log(addProduct);
-
-        // fetch('http://localhost:5000/foods')
-        // .then(res => res.json())
-        // .then(data => {
-        //     console.log(data);
-        // })
+        
         fetch('http://localhost:5000/foods', {
             method: 'POST', 
             headers: {
