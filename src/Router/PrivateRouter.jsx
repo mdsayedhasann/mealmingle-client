@@ -5,7 +5,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 const PrivateRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
   const location = useLocation()
-   
+   console.log('Private router user', user);
   if (loading) {
     return (
       <>
@@ -15,7 +15,7 @@ const PrivateRoute = ({ children }) => {
       </>
     );
   }
-  if (user?.email) {
+  if (user) {
     return children;
   }
   return <Navigate state={location.pathname} to="/login" replace></Navigate>;

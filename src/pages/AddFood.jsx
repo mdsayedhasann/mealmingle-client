@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const AddFood = () => {
     const {user} = useContext(AuthContext)
@@ -28,6 +29,31 @@ const AddFood = () => {
             DonatorEmail: email
         }
         console.log(addProduct);
+
+        // fetch('http://localhost:5000/foods')
+        // .then(res => res.json())
+        // .then(data => {
+        //     console.log(data);
+        // })
+        fetch('http://localhost:5000/foods', {
+            method: 'POST', 
+            headers: {
+                'content-type' : 'application/json'
+            }, 
+            body: JSON.stringify(addProduct) 
+        })
+        .then(res => {
+          res.json()
+        })
+        .then(data => {
+          Swal.fire({
+            icon: "success",
+            title: "Food Added Successfully",
+            timer: 1500
+          });
+          form.reset()
+            console.log(data)
+        })
 
     }
   return (

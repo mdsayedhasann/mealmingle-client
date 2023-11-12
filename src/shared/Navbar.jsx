@@ -25,18 +25,15 @@ const Navbar = () => {
     <li>
         <NavLink to='/availableFoods'>Available Foods</NavLink>
     </li>
-    <li>
-        <NavLink to='/addFood'>Add Food</NavLink>
-    </li>
-    <li>
-        <NavLink to='/manageMyFoods'>Manage My Foods </NavLink>
-    </li>
-    <li>
-        <NavLink to='/myFoodRequest'>My Food Request </NavLink>
-    </li>
-    <li>
-        <NavLink to='/login'>Login</NavLink>
-    </li>
+      {
+       <li>{ user && <NavLink to='/addFood'>Add Food</NavLink>}</li>
+      }
+      {
+        <li>{user &&  <NavLink to='/manageMyFoods'>Manage My Foods </NavLink>}</li>
+      }
+      {
+        <li> {user && <NavLink to='/myFoodRequest'>My Food Request </NavLink>} </li>
+      }
     </>
   return (
     <div className="navbar ">
