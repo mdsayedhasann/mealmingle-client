@@ -1,5 +1,5 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const SingleFood = () => {
   const food = useLoaderData();
@@ -56,9 +56,11 @@ const SingleFood = () => {
                     <h2 className="text-lg font-bold py-2">
                         Expired Date: {expireDate}
                     </h2>
+                    <Link to={`/request/${_id}`}>
                     <button className="btn my-5">
                         Request for this Food
                     </button>
+                    </Link>
                 </div>
             </div>
         </div>

@@ -32,6 +32,7 @@ const UpdateFood = () => {
       PickupLocation: location,
       expireDate: expireDate,
     };
+    console.log(update);
 
     fetch(`http://localhost:5000/foods/${_id}`, {
         method: 'PUT',
