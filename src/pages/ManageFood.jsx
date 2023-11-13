@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const ManageFood = ({ food, deleteFood }) => {
     
@@ -26,7 +27,9 @@ const ManageFood = ({ food, deleteFood }) => {
         <td>{expireDate}</td>
         <td>{PickupLocation}</td>
         <td className="flex gap-4">
+            <Link to={`/updateFood/${_id}`}>
             <button  className="btn-info btn">Edit</button>
+            </Link>
             <button onClick={() => deleteFood(_id)} className="btn-error btn">Delete</button>
         </td>
       </tr>

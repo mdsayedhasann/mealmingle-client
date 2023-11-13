@@ -8,7 +8,6 @@ const ManageMyFoods = () => {
   const { user } = useContext(AuthContext);
   const foods = useLoaderData();
   const [myFoods, setMyFoods] = useState([]);
-//   const [displayfoods, setDisplayFoods] = useState([])
 
   useEffect(() => {
     const filterFoods = foods.filter(
