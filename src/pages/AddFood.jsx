@@ -30,7 +30,7 @@ const AddFood = () => {
         }
         console.log(addProduct);
         
-        fetch('https://mealmingleserverr.vercel.app//foods', {
+        fetch('https://mealmingleserverr.vercel.app/foods', {
             method: 'POST', 
             headers: {
                 'content-type' : 'application/json'

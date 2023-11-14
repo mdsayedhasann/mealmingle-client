@@ -26,7 +26,7 @@ const Request = () => {
     }
     console.log(request);
 
-    fetch('https://mealmingleserverr.vercel.app//foodRequest', {
+    fetch('https://mealmingleserverr.vercel.app/foodRequest', {
         method: 'POST',
         headers: {
             'content-type' : 'application/json'
