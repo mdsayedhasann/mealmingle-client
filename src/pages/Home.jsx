@@ -10,7 +10,7 @@ const Home = () => {
     <>
     <Banner></Banner>
     <About></About>
-    <AvailableFoods></AvailableFoods>
+    <AvailableFoods compact > </AvailableFoods>
     <HomeBanner></HomeBanner>
     </>
   );

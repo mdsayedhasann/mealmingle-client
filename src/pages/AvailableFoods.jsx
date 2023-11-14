@@ -2,8 +2,11 @@ import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import AvailableFood from './AvailableFood';
 
-const AvailableFoods = () => {
-    const foods = useLoaderData()
+const AvailableFoods = ({compact}) => {
+    let foods = useLoaderData()
+    if(compact){
+        foods = foods.slice(-6)
+    }
     return (
         <div className='max-w-7xl mx-auto'>
             <h2 className='text-center text-3xl font-bold my-12'>

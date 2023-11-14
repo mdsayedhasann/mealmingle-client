@@ -18,12 +18,12 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>, 
-    errorElement: <Blank></Blank>,
+    // errorElement: <Blank></Blank>,
     children: [
       {
         path: '/',
         element: <Home></Home>,
-        loader: () => fetch('http://localhost:5000/foods')
+        loader: () => fetch('https://mealmingleserverr.vercel.app//foods')
       },
       {
         path: 'login',
@@ -36,12 +36,12 @@ const router = createBrowserRouter([
       {
         path: 'availableFoods',
         element: <AvailableFoods></AvailableFoods>,
-        loader: () => fetch('http://localhost:5000/foods')
+        loader: () => fetch('https://mealmingleserverr.vercel.app//foods')
       },
       {
         path: 'singleFood/:id',
         element: <SingleFood></SingleFood>,
-        loader: ({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
+        loader: ({params}) => fetch(`https://mealmingleserverr.vercel.app//foods/${params.id}`)
       },
       {
         path: 'addFood',
@@ -50,24 +50,27 @@ const router = createBrowserRouter([
       {
         path: 'manageMyFoods',
         element: <PrivateRoute><ManageMyFoods></ManageMyFoods></PrivateRoute>,
-        loader: () => fetch('http://localhost:5000/foods')
+        loader: () => fetch('https://mealmingleserverr.vercel.app//foods')
       },
       {
         path: 'myFoodRequest',
         element: <PrivateRoute><MyFoodRequest></MyFoodRequest></PrivateRoute> ,
-        loader: () => fetch('http://localhost:5000/foodRequest')
+        loader: () => fetch('https://mealmingleserverr.vercel.app//foodRequest')
       },
       {
         path: 'updateFood/:id',
         element: <UpdateFood></UpdateFood>,
-        loader: ({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
+        loader: ({params}) => fetch(`https://mealmingleserverr.vercel.app//foods/${params.id}`)
       }, 
       {
         path: 'request/:id',
         element: <PrivateRoute><Request></Request></PrivateRoute> ,
-        loader: ({params}) => fetch(`http://localhost:5000/foods/${params.id}`)
+        loader: ({params}) => fetch(`https://mealmingleserverr.vercel.app//foods/${params.id}`)
       }
     ]
   },
 ]);
 export default router;
+
+// https://mealmingleserverr.vercel.app/
+// https://vercel.com/md-sayed-hasans-projects/mealmingleserverr/RadiEShr2yCJYMCebvByQWSMFri4
